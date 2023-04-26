@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width:200px;
+        }
+    </style>
+</head>
+<body>
+    <img src="image/r.jpeg"/>
+    <h1>Like Count: <span>0</span></h1>
+    <h2>Dislike Count: <span>0</span></h2>
+    <div>
+        <button onClick="likeFun()">like</button>
+        <button onClick="dislikeFun()">Dislike</button>
+    </div>
+</body>
+</html>
+
+<script>
+
+    let likeCount=localStorage.getItem("likes");
+    document.querySelector("h1>span").innerText = likeCount;
+
+    let dislikeCount=localStorage.getItem("dislikes");
+    document.querySelector("h2>span").innerText = dislikeCount;
+
+    function likeFun(){
+        likeCount++;
+        
+        document.querySelector("h1>span").innerText = likeCount;
+        localStorage.setItem("likes",likeCount);
+
+    }
+
+    function dislikeFun(){
+        dislikeCount++;
+        
+        document.querySelector("h2>span").innerText = dislikeCount;
+        localStorage.setItem("dislikes",dislikeCount);
+
+    }
+</script>
